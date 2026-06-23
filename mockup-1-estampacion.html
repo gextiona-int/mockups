@@ -68,7 +68,9 @@
   .juror{border-top:3px solid var(--ink);padding-top:1rem}
   .juror .ph{aspect-ratio:1;background:
       repeating-linear-gradient(45deg,#cdbfa6 0 6px,#c3b59a 6px 12px);margin-bottom:1rem;
-      display:flex;align-items:flex-end;padding:.6rem;filter:grayscale(.2)}
+      display:flex;align-items:flex-end;padding:.6rem;filter:grayscale(.2);position:relative;overflow:hidden}
+  .juror .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.15)}
+  .brand .logo{height:34px;width:auto;display:block}
   .juror h3{font-weight:700;font-size:1.25rem}
   .juror .role{color:var(--red);font-style:italic;margin-bottom:.5rem}
   .juror p{font-size:.95rem;opacity:.85}
@@ -105,7 +107,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="brand">CROMA ART AWARDS</div>
+    <a class="brand" href="#"><img class="logo" src="img/logo-negro.png" alt="Croma Art Awards"></a>
     <nav class="menu">
       <a href="#categorias">Categorías</a>
       <a href="#jurado">Jurado</a>
@@ -132,15 +134,15 @@
     <a href="#">Diseño gráfico corporativo</a><a href="#">Grabado</a><a href="#">Diseño editorial</a>
     <a href="#">Ilustración publicitaria</a><a href="#">Ilustración para videojuegos</a><a href="#">Tipografía</a>
     <a href="#">Fotografía</a><a href="#">Óleo y acrílico</a><a href="#">Acuarela</a><a href="#">Cómic</a>
-    <a href="#">Manga</a><a href="#">Dibujo</a><a href="#">Sketching</a><a href="#">Lettering</a><a href="#">Jóvenes</a>
+    <a href="#">Manga</a><a href="#">Dibujo</a><a href="#">Sketching</a><a href="#">Lettering</a>
   </div>
 </section>
 
 <section id="jurado" class="wrap">
   <div class="eyebrow"><span class="n">02</span><span>El jurado</span></div>
   <div class="jury">
-    <div class="juror"><div class="ph"></div><h3>Ramón Freire Santa Cruz</h3><p class="role">Presidente del jurado</p><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado y obra gráfica. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
-    <div class="juror"><div class="ph"></div><h3>Miguel Redondo</h3><p class="role">Miembro del jurado</p><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista; alterna pintura, diseño y pedagogía.</p></div>
+    <div class="juror"><div class="ph"><img src="img/jurado-ramon.png" alt="Ramón Freire Santa Cruz"></div><h3>Ramón Freire Santa Cruz</h3><p class="role">Presidente del jurado</p><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado y obra gráfica. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
+    <div class="juror"><div class="ph"><img src="img/jurado-miguel.png" alt="Miguel Redondo"></div><h3>Miguel Redondo</h3><p class="role">Miembro del jurado</p><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista; alterna pintura, diseño y pedagogía.</p></div>
     <div class="juror"><div class="ph"></div><h3>Víctor M. Domínguez</h3><p class="role">Miembro del jurado</p><p>Director de la Escuela de Grabado y Diseño Gráfico de la FNMT-RCM y co-director del máster en la UCLM. Director Creativo de gextiona design.</p></div>
   </div>
 </section>
