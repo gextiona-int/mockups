@@ -38,6 +38,9 @@
   .hero .circle{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:var(--red);top:10%;left:20%}
   .hero .tri{position:absolute;width:0;height:0;border-left:80px solid transparent;border-right:80px solid transparent;border-bottom:140px solid var(--blue);bottom:8%;left:12%}
   .hero .sq{position:absolute;width:90px;height:90px;background:var(--ink);bottom:14%;right:14%}
+  .brand .logo{height:22px;width:auto;display:block}
+  .hero .right .hero-art{position:absolute;width:60%;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-4deg);z-index:4;filter:drop-shadow(0 16px 26px rgba(0,0,0,.32))}
+  .juror .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
 
   section{padding:3.5rem 0;border-bottom:4px solid var(--ink)}
   .sechead{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem}
@@ -98,7 +101,7 @@
 <a class="backlink" href="mockups.html">← volver</a>
 
 <header><div class="wrap nav">
-  <div class="brand"><span class="s"></span><span class="s2"></span> CROMA ART AWARDS</div>
+  <a class="brand" href="#"><span class="s"></span><span class="s2"></span><img class="logo" src="img/marca-negro.png" alt="Croma Art Awards"></a>
   <nav class="menu">
     <a href="#categorias">Categorías</a><a href="#jurado">Jurado</a><a href="#calendario">Calendario</a><a href="#premios">Premios</a>
     <a href="#">ES/EN</a><a class="btn" href="#cta" style="padding:.5rem 1.1rem">Inscríbete</a>
@@ -111,7 +114,7 @@
     <p class="lead">Concurso internacional de arte gráfico. Tres premios, exposición y promoción ante galeristas.</p>
     <div><a class="btn" href="#cta">Inscríbete →</a></div>
   </div>
-  <div class="right"><span class="circle"></span><span class="tri"></span><span class="sq"></span></div>
+  <div class="right"><span class="circle"></span><span class="tri"></span><span class="sq"></span><img class="hero-art" src="img/icon-lapices.png" alt="Lápices de colores"></div>
 </div></div>
 
 <section id="categorias"><div class="wrap">
@@ -128,8 +131,8 @@
 <section id="jurado"><div class="wrap">
   <div class="sechead"><span class="mk c"></span><h2>El jurado</h2></div>
   <div class="jury">
-    <div class="juror"><div class="ph"></div><h3>Ramón Freire Santa Cruz</h3><span class="role">Presidente</span><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
-    <div class="juror"><div class="ph"></div><h3>Miguel Redondo</h3><span class="role">Jurado</span><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista.</p></div>
+    <div class="juror"><div class="ph"><img src="img/jurado-ramon.png" alt="Ramón Freire Santa Cruz"></div><h3>Ramón Freire Santa Cruz</h3><span class="role">Presidente</span><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
+    <div class="juror"><div class="ph"><img src="img/jurado-miguel.png" alt="Miguel Redondo"></div><h3>Miguel Redondo</h3><span class="role">Jurado</span><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista.</p></div>
     <div class="juror"><div class="ph"></div><h3>Víctor M. Domínguez</h3><span class="role">Jurado</span><p>Director de la Escuela de Grabado y Diseño Gráfico de la FNMT-RCM y co-director del máster en la UCLM. Director Creativo de gextiona design.</p></div>
   </div>
 </div></section>
