@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croma Art Awards · Elige la dirección de diseño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#101013;--card:#17171b;--fg:#f1efe9;--mut:#9b978f;--line:rgba(255,255,255,.12);--accent:#d8b072}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+  a{color:inherit}
+  .hero{text-align:center;padding:4rem 1rem 2rem}
+  .hero .micro{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  .hero h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(2.2rem,5vw,3.4rem);margin:.6rem 0}
+  .hero p{color:var(--mut);max-width:60ch;margin:0 auto;font-size:1.05rem}
+  .hero .tip{margin-top:1.2rem;font-size:.85rem;color:var(--mut)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem;padding:2rem 0 4rem}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+  .card:hover{border-color:var(--accent);transform:translateY(-3px)}
+  .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#000}
+  /* miniatura: iframe a escala */
+  .thumb iframe{position:absolute;top:0;left:0;width:250%;height:250%;border:0;transform:scale(.4);transform-origin:top left;pointer-events:none}
+  .thumb .click{position:absolute;inset:0;z-index:2}
+  .num{position:absolute;top:.8rem;left:.8rem;z-index:3;background:var(--accent);color:#101013;font-weight:700;width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+  .body{padding:1.3rem 1.4rem 1.5rem}
+  .body h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.4rem}
+  .body p{color:var(--mut);font-size:.92rem;margin:.4rem 0 1rem}
+  .actions{display:flex;gap:.6rem}
+  .btn{display:inline-block;padding:.65rem 1.2rem;border-radius:8px;text-decoration:none;font-size:.85rem;border:1px solid var(--accent);color:var(--accent)}
+  .btn--solid{background:var(--accent);color:#101013;border-color:var(--accent)}
+  footer{text-align:center;color:var(--mut);font-size:.82rem;padding:2rem 1rem 3rem;border-top:1px solid var(--line)}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <p class="micro">Croma Art Awards · Propuestas de diseño</p>
+    <h1>Elige la dirección visual</h1>
+    <p>Cuatro maquetas de la web del concurso, cada una con un lenguaje visual distinto pero el mismo contenido (categorías, jurado, calendario y premios reales). Ábrelas, compáralas y dinos cuál te convence.</p>
+    <p class="tip">Pulsa cualquier tarjeta para verla a tamaño completo. Es una maqueta visual: los botones y enlaces aún no son funcionales.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="thumb"><span class="num">1</span><iframe src="mockup-1-estampacion.html" scrolling="no" title="Estampación"></iframe><a class="click" href="mockup-1-estampacion.html"></a></div>
+      <div class="body">
+        <h2>Estampación / tinta</h2>
+        <p>Estética ligada a las disciplinas: papel, tinta, letterpress, sellos. Artesanal y muy original; imposible confundirla con una plantilla.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-1-estampacion.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">2</span><iframe src="mockup-2-oscuro.html" scrolling="no" title="Inmersivo oscuro"></iframe><a class="click" href="mockup-2-oscuro.html"></a></div>
+      <div class="body">
+        <h2>Inmersivo oscuro</h2>
+        <p>Lienzo negro, la obra como protagonista, acentos dorados. Sensación premium de gala de premios.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-2-oscuro.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">3</span><iframe src="mockup-3-editorial.html" scrolling="no" title="Editorial"></iframe><a class="click" href="mockup-3-editorial.html"></a></div>
+      <div class="body">
+        <h2>Editorial / galería</h2>
+        <p>Como una revista de arte: serif elegante, mucho aire, rejilla refinada. Sofisticado y atemporal.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-3-editorial.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">4</span><iframe src="mockup-4-bold.html" scrolling="no" title="Bold"></iframe><a class="click" href="mockup-4-bold.html"></a></div>
+      <div class="body">
+        <h2>Bold / brutalista</h2>
+        <p>Tipografía gigante, rejilla visible, un rojo de acento potente. Expresivo y rompedor, lenguaje "art school".</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-4-bold.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">5</span><iframe src="mockup-5-suizo.html" scrolling="no" title="Suizo"></iframe><a class="click" href="mockup-5-suizo.html"></a></div>
+      <div class="body">
+        <h2>Suizo / minimal</h2>
+        <p>Rejilla rigurosa, mucho blanco, Helvetica/Inter y un rojo preciso. Limpio, ordenado y profesional. El minimalismo bien hecho.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-5-suizo.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">6</span><iframe src="mockup-6-riso.html" scrolling="no" title="Risograph"></iframe><a class="click" href="mockup-6-riso.html"></a></div>
+      <div class="body">
+        <h2>Risograph / maximalista</h2>
+        <p>Color, energía y textura riso: rosa, azul, amarillo, formas y sombras duras. Festivo y juvenil, ideal para atraer a artistas jóvenes.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-6-riso.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">7</span><iframe src="mockup-7-deco.html" scrolling="no" title="Art déco"></iframe><a class="click" href="mockup-7-deco.html"></a></div>
+      <div class="body">
+        <h2>Art déco / cartel</h2>
+        <p>Verde y oro, simetría, serif elegante y filetes ornamentales tipo cartel de exposición. Prestigio clásico y aire de gala.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-7-deco.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">8</span><iframe src="mockup-8-glass.html" scrolling="no" title="Glassmorphism"></iframe><a class="click" href="mockup-8-glass.html"></a></div>
+      <div class="body">
+        <h2>Glassmorphism / gradiente</h2>
+        <p>Fondos de gradiente suave y tarjetas de cristal esmerilado. Moderno, luminoso y tecnológico, estilo app actual.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-8-glass.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">9</span><iframe src="mockup-9-bauhaus.html" scrolling="no" title="Bauhaus"></iframe><a class="click" href="mockup-9-bauhaus.html"></a></div>
+      <div class="body">
+        <h2>Bauhaus / geométrico</h2>
+        <p>Colores primarios, círculos, triángulos y cuadrados, tipografía rotunda. Modernismo de escuela de arte, icónico y atemporal.</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-9-bauhaus.html">Ver completa →</a></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="thumb"><span class="num">10</span><iframe src="mockup-10-terroso.html" scrolling="no" title="Terroso"></iframe><a class="click" href="mockup-10-terroso.html"></a></div>
+      <div class="body">
+        <h2>Terroso / orgánico</h2>
+        <p>Tonos tierra (terracota, salvia, ocre), formas orgánicas y serif cálida. Sereno, artesanal y acogedor, muy "galería boutique".</p>
+        <div class="actions"><a class="btn btn--solid" href="mockup-10-terroso.html">Ver completa →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>© 2026 Croma Art Awards · Maquetas para elección de diseño · desarrollo a medida (no WordPress)</footer>
+</body>
+</html>

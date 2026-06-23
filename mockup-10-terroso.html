@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croma Art Awards · 10 · Terroso / orgánico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#ece3d4;--bg2:#e3d8c4;--ink:#33291f;--mut:#6e6253;--terra:#c0694a;--sage:#7f8c5c;--ochre:#cf9a45;--maxw:1100px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:'Fraunces',Georgia,serif}
+  .micro{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
+  .btn{display:inline-block;background:var(--terra);color:#fff;padding:.8rem 1.9rem;border-radius:999px;font-weight:500;letter-spacing:.02em;transition:.16s}
+  .btn:hover{background:var(--ink)}
+  .btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--bg)}
+
+  header{position:sticky;top:0;z-index:30;background:rgba(236,227,212,.9);backdrop-filter:blur(8px);border-bottom:1px solid rgba(51,41,31,.18)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 0}
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;display:flex;align-items:center;gap:.5rem}
+  .brand .leaf{width:18px;height:18px;background:var(--sage);border-radius:50% 0 50% 50%}
+  .menu{display:flex;gap:1.5rem;align-items:center}
+  .menu a{font-size:.9rem;color:var(--mut)}
+  .menu a:hover{color:var(--ink)}
+
+  /* Hero */
+  .hero{padding:4.5rem 0;position:relative;overflow:hidden}
+  .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+  .hero h1{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2.8rem,7vw,5.4rem);line-height:1.02;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--terra)}
+  .hero .lead{max-width:42ch;color:var(--mut);margin:1.3rem 0 2rem;font-size:1.08rem}
+  .blobimg{aspect-ratio:1;border-radius:46% 54% 58% 42%/52% 44% 56% 48%;
+    background:linear-gradient(150deg,var(--ochre),var(--terra) 55%,#9c4f38);position:relative;overflow:hidden}
+  .blobimg::after{content:"";position:absolute;width:55%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.14);top:-10%;right:-10%}
+
+  section{padding:4rem 0}
+  .sechead{display:flex;align-items:baseline;gap:1rem;margin-bottom:2rem}
+  .sechead .n{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:1.4rem}
+  .sechead h2{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.9rem,4.5vw,2.9rem)}
+
+  /* Categorías */
+  .cats{display:flex;flex-wrap:wrap;gap:.7rem}
+  .cats a{padding:.55rem 1.2rem;border-radius:999px;background:var(--bg2);border:1px solid rgba(51,41,31,.18);font-size:.98rem;transition:.15s}
+  .cats a:hover{background:var(--sage);color:#fff;border-color:var(--sage)}
+
+  /* Jurado */
+  .jury{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .juror .ph{aspect-ratio:1;border-radius:42% 58% 56% 44%/54% 46% 54% 46%;margin-bottom:1rem}
+  .juror:nth-child(1) .ph{background:linear-gradient(150deg,var(--terra),#9c4f38)}
+  .juror:nth-child(2) .ph{background:linear-gradient(150deg,var(--sage),#5e6b40)}
+  .juror:nth-child(3) .ph{background:linear-gradient(150deg,var(--ochre),#a87729)}
+  .juror h3{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem}
+  .juror .role{color:var(--terra);font-style:italic;font-family:'Fraunces',serif;margin-bottom:.5rem}
+  .juror p{color:var(--mut);font-size:.92rem}
+
+  /* Calendario */
+  .cal{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+  .cal div{background:var(--bg2);border-radius:18px;padding:1.4rem}
+  .cal .m{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;color:var(--terra)}
+  .cal .t{font-weight:600;margin:.4rem 0;font-size:.92rem}
+  .cal p{color:var(--mut);font-size:.86rem}
+
+  /* Premios */
+  .prizes{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:center}
+  .three{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(6rem,16vw,12rem);line-height:.8;color:var(--terra)}
+  .prizes ul{list-style:none}
+  .prizes li{padding:.9rem 0;border-bottom:1px solid rgba(51,41,31,.18);font-size:1.05rem;display:flex;gap:.8rem;align-items:baseline}
+  .prizes li .leaf{width:12px;height:12px;background:var(--sage);border-radius:50% 0 50% 50%;flex:none}
+
+  .cta{text-align:center}
+  .ctabox{background:var(--ink);color:var(--bg);border-radius:30px;padding:3.5rem 2rem}
+  .cta h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(2rem,5vw,3.4rem);max-width:22ch;margin:0 auto 1.6rem}
+  .cta .btn{background:var(--ochre);color:var(--ink)}.cta .btn:hover{background:var(--terra);color:#fff}
+  footer{padding:2.5rem 0;text-align:center;color:var(--mut);font-size:.85rem}
+  .backlink{position:fixed;left:1rem;bottom:1rem;z-index:40;background:var(--terra);color:#fff;padding:.5rem .9rem;border-radius:999px;font-size:.8rem}
+
+  @media(max-width:820px){.hero .grid,.prizes{grid-template-columns:1fr}.jury,.cal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="backlink" href="mockups.html">← volver</a>
+
+<header><div class="wrap nav">
+  <div class="brand"><span class="leaf"></span>Croma Art Awards</div>
+  <nav class="menu">
+    <a href="#categorias">Categorías</a><a href="#jurado">Jurado</a><a href="#calendario">Calendario</a><a href="#premios">Premios</a>
+    <a href="#">ES · EN</a><a class="btn btn--ghost" href="#cta" style="padding:.45rem 1.1rem">Inscríbete</a>
+  </nav>
+</div></header>
+
+<div class="hero"><div class="wrap grid">
+  <div>
+    <p class="micro">Concurso internacional de arte gráfico · 2026</p>
+    <h1>Impulsa tu carrera <em>y tu obra</em></h1>
+    <p class="lead">Un espacio cálido para tu obra: grabado, dibujo, pintura, ilustración y diseño. Tres premios, exposición y promoción ante galeristas.</p>
+    <a class="btn" href="#cta">Inscríbete →</a>
+  </div>
+  <div class="blobimg"></div>
+</div></div>
+
+<section id="categorias"><div class="wrap">
+  <div class="sechead"><span class="n">01</span><h2>Categorías</h2></div>
+  <div class="cats">
+    <a href="#">Diseño gráfico corporativo</a><a href="#">Grabado</a><a href="#">Diseño editorial</a>
+    <a href="#">Ilustración publicitaria</a><a href="#">Ilustración videojuegos</a><a href="#">Tipografía</a>
+    <a href="#">Fotografía</a><a href="#">Óleo y acrílico</a><a href="#">Acuarela</a><a href="#">Cómic</a>
+    <a href="#">Manga</a><a href="#">Dibujo</a><a href="#">Sketching</a><a href="#">Lettering</a><a href="#">Jóvenes</a>
+  </div>
+</div></section>
+
+<section id="jurado"><div class="wrap">
+  <div class="sechead"><span class="n">02</span><h2>El jurado</h2></div>
+  <div class="jury">
+    <div class="juror"><div class="ph"></div><h3>Ramón Freire Santa Cruz</h3><div class="role">Presidente del jurado</div><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
+    <div class="juror"><div class="ph"></div><h3>Miguel Redondo</h3><div class="role">Miembro del jurado</div><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista.</p></div>
+    <div class="juror"><div class="ph"></div><h3>Víctor M. Domínguez</h3><div class="role">Miembro del jurado</div><p>Director de la Escuela de Grabado y Diseño Gráfico de la FNMT-RCM y co-director del máster en la UCLM. Director Creativo de gextiona design.</p></div>
+  </div>
+</div></section>
+
+<section id="calendario"><div class="wrap">
+  <div class="sechead"><span class="n">03</span><h2>Calendario</h2></div>
+  <div class="cal">
+    <div><div class="m">Octubre</div><div class="t">Inscripciones</div><p>Apertura del plazo. Jurado sin acceso hasta el cierre.</p></div>
+    <div><div class="m">31 oct</div><div class="t">Cierre</div><p>23:59 (GMT+2). Fin del plazo.</p></div>
+    <div><div class="m">Diciembre</div><div class="t">Selección</div><p>El jurado elige las finalistas.</p></div>
+    <div><div class="m">Enero</div><div class="t">Resultados</div><p>Comunicación de premiados.</p></div>
+  </div>
+</div></section>
+
+<section id="premios"><div class="wrap">
+  <div class="sechead"><span class="n">04</span><h2>Premios</h2></div>
+  <div class="prizes">
+    <div style="text-align:center"><div class="three">3</div><p class="micro">premios por edición</p></div>
+    <ul>
+      <li><span class="leaf"></span>Trofeo oficial Croma Art Awards</li>
+      <li><span class="leaf"></span>Certificado acreditativo del premio</li>
+      <li><span class="leaf"></span>Lote de material de Bellas Artes de los patrocinadores</li>
+      <li><span class="leaf"></span>El ganador expone en sala de primer nivel y en el sitio oficial</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="cta"><div class="wrap"><div class="ctabox">
+  <h2>Inscríbete en la próxima edición e impulsa tu carrera</h2>
+  <a class="btn" href="#">Inscríbete ahora</a>
+</div></div></section>
+
+<footer>© 2026 Croma Art Awards · Mockup 10 (Terroso / orgánico) · maqueta de muestra</footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croma Art Awards · 8 · Glassmorphism / gradiente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1730;--mut:#5b5775;--glass:rgba(255,255,255,.55);--line:rgba(255,255,255,.7);--accent:#7b3ff2;--maxw:1140px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Sora',system-ui,sans-serif;color:var(--ink);line-height:1.6;
+    background:
+      radial-gradient(40% 50% at 12% 8%, #ffd6e7 0, transparent 60%),
+      radial-gradient(45% 55% at 88% 12%, #c8e0ff 0, transparent 60%),
+      radial-gradient(50% 60% at 80% 90%, #d6ffe9 0, transparent 60%),
+      radial-gradient(45% 55% at 15% 95%, #ede0ff 0, transparent 60%),
+      linear-gradient(120deg,#f3eeff,#eef6ff);
+    background-attachment:fixed}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.6rem}
+  a{color:inherit;text-decoration:none}
+  .micro{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .glass{background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--line);box-shadow:0 8px 32px rgba(80,50,160,.12)}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:.8rem 1.8rem;border-radius:999px;font-weight:600;
+    box-shadow:0 8px 22px rgba(123,63,242,.35);transition:.16s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(123,63,242,.45)}
+  .btn--ghost{background:var(--glass);color:var(--ink);box-shadow:none;border:1px solid var(--line)}
+
+  header{position:sticky;top:0;z-index:30}
+  .navbar{margin-top:1rem;border-radius:18px;display:flex;align-items:center;justify-content:space-between;padding:.7rem 1.2rem}
+  .brand{font-weight:800;letter-spacing:-.01em}
+  .menu{display:flex;gap:1.3rem;align-items:center}
+  .menu a{font-size:.88rem;color:var(--mut);font-weight:500}
+  .menu a:hover{color:var(--ink)}
+
+  .hero{padding:4.5rem 0 3rem;text-align:center}
+  .hero h1{font-weight:800;font-size:clamp(2.8rem,8vw,6rem);line-height:1;letter-spacing:-.03em;
+    background:linear-gradient(120deg,#7b3ff2,#3f8cff 50%,#16b8a6);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .lead{max-width:46ch;margin:1.3rem auto 2rem;color:var(--mut);font-size:1.12rem}
+  .hero .pills{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+  .hpill{padding:.4rem 1rem;border-radius:999px;font-size:.82rem;font-weight:500}
+
+  section{padding:3.5rem 0}
+  .sechead{text-align:center;margin-bottom:2rem}
+  .sechead h2{font-weight:700;font-size:clamp(1.8rem,4.5vw,2.8rem);letter-spacing:-.02em}
+
+  .cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+  .cats a{padding:1rem 1.2rem;border-radius:14px;font-weight:500;transition:.15s;display:flex;justify-content:space-between;align-items:center}
+  .cats a:hover{transform:translateY(-2px);color:var(--accent)}
+  .cats a span{color:var(--accent)}
+
+  .jury{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .juror{border-radius:20px;padding:1.5rem;text-align:center}
+  .juror .ph{width:96px;height:96px;border-radius:50%;margin:0 auto 1rem;background:linear-gradient(135deg,#b794ff,#7b3ff2)}
+  .juror:nth-child(2) .ph{background:linear-gradient(135deg,#7fb2ff,#3f8cff)}
+  .juror:nth-child(3) .ph{background:linear-gradient(135deg,#7df0cf,#16b8a6)}
+  .juror h3{font-weight:700;font-size:1.1rem}
+  .juror .role{color:var(--accent);font-size:.8rem;font-weight:600;margin:.3rem 0 .6rem}
+  .juror p{color:var(--mut);font-size:.9rem}
+
+  .cal{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+  .cal div{border-radius:18px;padding:1.4rem}
+  .cal .m{font-weight:800;font-size:1.4rem;letter-spacing:-.02em;background:linear-gradient(120deg,#7b3ff2,#3f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cal .t{font-weight:600;font-size:.9rem;margin:.4rem 0}
+  .cal p{color:var(--mut);font-size:.85rem}
+
+  .prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+  .prize{border-radius:22px;padding:2rem;text-align:center}
+  .prize .ico{font-size:2rem}
+  .prize h3{font-weight:700;margin:.6rem 0 .3rem}
+  .prize p{color:var(--mut);font-size:.9rem}
+
+  .cta{text-align:center}
+  .ctabox{border-radius:28px;padding:3.5rem 2rem}
+  .cta h2{font-weight:800;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.02em;max-width:20ch;margin:0 auto 1.5rem}
+  footer{padding:2.5rem 0;text-align:center;color:var(--mut);font-size:.82rem}
+  .backlink{position:fixed;left:1rem;bottom:1rem;z-index:40;padding:.5rem .9rem;border-radius:999px;font-size:.8rem;font-weight:600}
+
+  @media(max-width:820px){.jury,.cal,.prizes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="backlink glass" href="mockups.html">← volver</a>
+
+<header><div class="wrap"><div class="navbar glass">
+  <div class="brand">Croma Art Awards</div>
+  <nav class="menu">
+    <a href="#categorias">Categorías</a><a href="#jurado">Jurado</a><a href="#calendario">Calendario</a><a href="#premios">Premios</a>
+    <a href="#">ES/EN</a><a class="btn" href="#cta" style="padding:.5rem 1.2rem">Inscríbete</a>
+  </nav>
+</div></div></header>
+
+<div class="hero"><div class="wrap">
+  <p class="micro">Concurso internacional de arte gráfico · 2026</p>
+  <h1>Impulsa tu carrera y tu obra</h1>
+  <p class="lead">Sube tu obra, paga la inscripción y deja que un jurado de primer nivel la valore. Tres premios y exposición.</p>
+  <a class="btn" href="#cta">Inscríbete →</a>
+  <div class="pills">
+    <span class="hpill glass">15 categorías</span><span class="hpill glass">3 premios</span><span class="hpill glass">Jurado UCLM · FNMT-RCM</span><span class="hpill glass">Cierre 31 oct</span>
+  </div>
+</div></div>
+
+<section id="categorias"><div class="wrap">
+  <div class="sechead"><h2>Categorías</h2></div>
+  <div class="cats">
+    <a class="glass" href="#">Diseño gráfico corporativo <span>→</span></a><a class="glass" href="#">Grabado <span>→</span></a><a class="glass" href="#">Diseño editorial <span>→</span></a>
+    <a class="glass" href="#">Ilustración publicitaria <span>→</span></a><a class="glass" href="#">Ilustración videojuegos <span>→</span></a><a class="glass" href="#">Tipografía <span>→</span></a>
+    <a class="glass" href="#">Fotografía <span>→</span></a><a class="glass" href="#">Óleo y acrílico <span>→</span></a><a class="glass" href="#">Acuarela <span>→</span></a>
+    <a class="glass" href="#">Cómic <span>→</span></a><a class="glass" href="#">Manga <span>→</span></a><a class="glass" href="#">Dibujo <span>→</span></a>
+    <a class="glass" href="#">Sketching <span>→</span></a><a class="glass" href="#">Lettering <span>→</span></a><a class="glass" href="#">Jóvenes <span>→</span></a>
+  </div>
+</div></section>
+
+<section id="jurado"><div class="wrap">
+  <div class="sechead"><h2>El jurado</h2></div>
+  <div class="jury">
+    <div class="juror glass"><div class="ph"></div><h3>Ramón Freire Santa Cruz</h3><div class="role">Presidente del jurado</div><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
+    <div class="juror glass"><div class="ph"></div><h3>Miguel Redondo</h3><div class="role">Miembro del jurado</div><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista.</p></div>
+    <div class="juror glass"><div class="ph"></div><h3>Víctor M. Domínguez</h3><div class="role">Miembro del jurado</div><p>Director de la Escuela de Grabado y Diseño Gráfico de la FNMT-RCM y co-director del máster en la UCLM. Director Creativo de gextiona design.</p></div>
+  </div>
+</div></section>
+
+<section id="calendario"><div class="wrap">
+  <div class="sechead"><h2>Calendario</h2></div>
+  <div class="cal">
+    <div class="glass"><div class="m">Octubre</div><div class="t">Inscripciones</div><p>Apertura del plazo. Jurado sin acceso hasta el cierre.</p></div>
+    <div class="glass"><div class="m">31 oct</div><div class="t">Cierre</div><p>23:59 (GMT+2). Fin del plazo.</p></div>
+    <div class="glass"><div class="m">Diciembre</div><div class="t">Selección</div><p>El jurado elige las finalistas.</p></div>
+    <div class="glass"><div class="m">Enero</div><div class="t">Resultados</div><p>Comunicación de premiados.</p></div>
+  </div>
+</div></section>
+
+<section id="premios"><div class="wrap">
+  <div class="sechead"><h2>Tres premios</h2></div>
+  <div class="prizes">
+    <div class="prize glass"><div class="ico">🏆</div><h3>Trofeo</h3><p>Trofeo oficial Croma Art Awards.</p></div>
+    <div class="prize glass"><div class="ico">📜</div><h3>Certificado</h3><p>Acreditación oficial del premio.</p></div>
+    <div class="prize glass"><div class="ico">🎨</div><h3>Exposición</h3><p>Lote de material y exposición del ganador en sala de primer nivel.</p></div>
+  </div>
+</div></section>
+
+<section class="cta"><div class="wrap"><div class="ctabox glass">
+  <h2>Inscríbete en la próxima edición e impulsa tu carrera</h2>
+  <a class="btn" href="#">Inscríbete ahora</a>
+</div></div></section>
+
+<footer>© 2026 Croma Art Awards · Mockup 8 (Glassmorphism) · maqueta de muestra</footer>
+</body>
+</html>

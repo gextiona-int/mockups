@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Croma Art Awards · 1 · Estampación / tinta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Spectral:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#16130f;--paper:#efe9dd;--paper2:#e6dfce;--red:#8a1d12;--maxw:1080px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;color:var(--ink);
+    background:
+      radial-gradient(circle at 15% 5%, rgba(0,0,0,.05), transparent 35%),
+      radial-gradient(circle at 85% 95%, rgba(0,0,0,.05), transparent 35%),
+      repeating-linear-gradient(0deg, rgba(0,0,0,.013) 0 2px, transparent 2px 4px),
+      var(--paper);
+    line-height:1.6}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 2rem}
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+  .micro{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:.65}
+  .buril{height:0;border-top:3px solid var(--ink);width:160px;margin:1.4rem 0;position:relative}
+  .buril::after{content:"";position:absolute;left:0;top:6px;border-top:1px solid var(--ink);width:120px}
+  a{color:inherit}
+  .btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.85rem 1.8rem;text-decoration:none;
+    font-family:'Playfair Display',serif;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;
+    transition:.15s;border:1px solid var(--ink)}
+  .btn:hover{background:transparent;color:var(--ink)}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:20;background:rgba(239,233,221,.9);backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(22,19,15,.18)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+  .brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.2rem;letter-spacing:.02em}
+  .menu{display:flex;gap:1.4rem;align-items:center}
+  .menu a{text-decoration:none;font-size:.92rem}
+  .menu a:hover{color:var(--red)}
+  .lang{font-size:.75rem;letter-spacing:.1em}
+
+  /* Hero */
+  .hero{padding:5rem 0 4rem;position:relative;overflow:hidden}
+  .hero h1{font-weight:900;font-size:clamp(3rem,8vw,6rem);line-height:.96;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;font-weight:500}
+  .hero .lead{max-width:34ch;font-size:1.15rem;margin:1rem 0 2rem}
+  .seal{position:absolute;right:4%;top:24%;width:200px;height:200px;border:2px solid var(--red);border-radius:50%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--red);
+    transform:rotate(-9deg);font-family:'Playfair Display',serif;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;opacity:.92}
+  .seal::before{content:"";position:absolute;inset:10px;border:1px solid var(--red);border-radius:50%}
+  .seal b{font-size:1.6rem;font-weight:900;letter-spacing:.05em;margin:.1rem 0}
+
+  section{padding:4rem 0;border-top:1px solid rgba(22,19,15,.15)}
+  .eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:1.6rem}
+  .eyebrow span{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem}
+  .eyebrow .n{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;border:1px solid var(--ink);border-radius:50%;width:2rem;height:2rem;display:flex;align-items:center;justify-content:center}
+
+  /* Categorías */
+  .cats{display:flex;flex-wrap:wrap;gap:.6rem}
+  .cats a{text-decoration:none;border:1px solid rgba(22,19,15,.4);padding:.5rem 1rem;border-radius:2px;
+    font-size:.95rem;transition:.15s;background:rgba(255,255,255,.25)}
+  .cats a:hover{background:var(--ink);color:var(--paper)}
+
+  /* Jurado */
+  .jury{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+  .juror{border-top:3px solid var(--ink);padding-top:1rem}
+  .juror .ph{aspect-ratio:1;background:
+      repeating-linear-gradient(45deg,#cdbfa6 0 6px,#c3b59a 6px 12px);margin-bottom:1rem;
+      display:flex;align-items:flex-end;padding:.6rem;filter:grayscale(.2)}
+  .juror h3{font-weight:700;font-size:1.25rem}
+  .juror .role{color:var(--red);font-style:italic;margin-bottom:.5rem}
+  .juror p{font-size:.95rem;opacity:.85}
+
+  /* Calendario */
+  .cal{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink)}
+  .cal div{padding:1.4rem;border-right:1px solid rgba(22,19,15,.25)}
+  .cal div:last-child{border-right:0}
+  .cal .m{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;margin-bottom:.4rem}
+  .cal .t{font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-size:.85rem;margin-bottom:.5rem}
+  .cal p{font-size:.88rem;opacity:.8}
+
+  /* Premios */
+  .prizes{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+  .prizes ul{list-style:none;margin-top:1rem}
+  .prizes li{padding:.6rem 0;border-bottom:1px dotted rgba(22,19,15,.35);font-size:1.05rem}
+  .prizes li::before{content:"❧  ";color:var(--red)}
+  .three{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(4rem,12vw,9rem);line-height:.9;color:var(--red)}
+
+  /* CTA + footer */
+  .cta{text-align:center;background:var(--ink);color:var(--paper);border:0}
+  .cta h2{font-weight:900;font-size:clamp(2rem,5vw,3.4rem);max-width:20ch;margin:0 auto 1.5rem}
+  .cta .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .cta .btn:hover{background:transparent;color:var(--paper)}
+  footer{padding:2.5rem 0;text-align:center;font-size:.85rem;opacity:.7}
+  .backlink{position:fixed;left:1rem;bottom:1rem;z-index:40;background:var(--ink);color:var(--paper);
+    padding:.5rem .9rem;border-radius:999px;text-decoration:none;font-family:'Spectral',serif;font-size:.8rem;opacity:.9}
+
+  @media(max-width:820px){.jury,.cal,.prizes{grid-template-columns:1fr}.seal{position:static;transform:none;margin:1.5rem 0}}
+</style>
+</head>
+<body>
+<a class="backlink" href="mockups.html">← volver a los 4 estilos</a>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">CROMA ART AWARDS</div>
+    <nav class="menu">
+      <a href="#categorias">Categorías</a>
+      <a href="#jurado">Jurado</a>
+      <a href="#calendario">Calendario</a>
+      <a href="#premios">Premios</a>
+      <a class="lang" href="#">ES · EN</a>
+      <a class="btn btn--ghost" href="#cta">Inscríbete</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <p class="micro">Concurso internacional de arte gráfico</p>
+  <h1>Impulsa<br>tu carrera<br><em>y tu obra</em></h1>
+  <div class="buril"></div>
+  <p class="lead">Grabado, litografía, dibujo, ilustración, pintura y diseño. Tres premios, exposición en sala de primer nivel y promoción ante galeristas.</p>
+  <a class="btn" href="#cta">Inscríbete →</a>
+  <div class="seal">Croma<b>ART</b>Awards</div>
+</div>
+
+<section id="categorias" class="wrap">
+  <div class="eyebrow"><span class="n">01</span><span>Categorías</span></div>
+  <div class="cats">
+    <a href="#">Diseño gráfico corporativo</a><a href="#">Grabado</a><a href="#">Diseño editorial</a>
+    <a href="#">Ilustración publicitaria</a><a href="#">Ilustración para videojuegos</a><a href="#">Tipografía</a>
+    <a href="#">Fotografía</a><a href="#">Óleo y acrílico</a><a href="#">Acuarela</a><a href="#">Cómic</a>
+    <a href="#">Manga</a><a href="#">Dibujo</a><a href="#">Sketching</a><a href="#">Lettering</a><a href="#">Jóvenes</a>
+  </div>
+</section>
+
+<section id="jurado" class="wrap">
+  <div class="eyebrow"><span class="n">02</span><span>El jurado</span></div>
+  <div class="jury">
+    <div class="juror"><div class="ph"></div><h3>Ramón Freire Santa Cruz</h3><p class="role">Presidente del jurado</p><p>Doctor en Bellas Artes y profesor titular de la UCLM. Especialista en grabado y obra gráfica. Co-director del Máster de Grabado y Diseño Gráfico de la UCLM.</p></div>
+    <div class="juror"><div class="ph"></div><h3>Miguel Redondo</h3><p class="role">Miembro del jurado</p><p>Licenciado en Bellas Artes e Ingeniería de Telecomunicaciones. Profesor de Diseño Gráfico y artista; alterna pintura, diseño y pedagogía.</p></div>
+    <div class="juror"><div class="ph"></div><h3>Víctor M. Domínguez</h3><p class="role">Miembro del jurado</p><p>Director de la Escuela de Grabado y Diseño Gráfico de la FNMT-RCM y co-director del máster en la UCLM. Director Creativo de gextiona design.</p></div>
+  </div>
+</section>
+
+<section id="calendario" class="wrap">
+  <div class="eyebrow"><span class="n">03</span><span>Calendario</span></div>
+  <div class="cal">
+    <div><div class="m">Octubre</div><div class="t">Inscripciones</div><p>Se abre el plazo. El jurado no accede a las obras hasta el cierre de admisiones.</p></div>
+    <div><div class="m">31 oct</div><div class="t">Cierre</div><p>23:59 (GMT+2). Fin del plazo de inscripción de la edición.</p></div>
+    <div><div class="m">Diciembre</div><div class="t">Selección</div><p>El jurado analiza y selecciona las obras finalistas.</p></div>
+    <div><div class="m">Enero</div><div class="t">Resultados</div><p>Se comunican las obras premiadas en la web y a los ganadores.</p></div>
+  </div>
+</section>
+
+<section id="premios" class="wrap">
+  <div class="eyebrow"><span class="n">04</span><span>Premios</span></div>
+  <div class="prizes">
+    <div>
+      <p style="font-size:1.15rem;max-width:36ch">Se otorgan <strong>tres premios</strong>. Cada artista premiado recibe:</p>
+      <ul>
+        <li>Trofeo Croma Art Awards</li>
+        <li>Certificado oficial</li>
+        <li>Lote de material de Bellas Artes de nuestros patrocinadores</li>
+        <li>El ganador expone en una sala de exhibiciones de primer nivel</li>
+      </ul>
+    </div>
+    <div style="text-align:center"><div class="three">3</div><p class="micro">premios por edición</p></div>
+  </div>
+</section>
+
+<section id="cta" class="cta">
+  <div class="wrap">
+    <h2>Inscríbete en la próxima edición e impulsa tu carrera</h2>
+    <a class="btn" href="#">Inscríbete ahora</a>
+  </div>
+</section>
+
+<footer>© 2026 Croma Art Awards · Mockup 1 (Estampación / tinta) · maqueta de muestra</footer>
+</body>
+</html>
