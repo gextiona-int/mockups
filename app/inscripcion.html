@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscríbete</title>
+    <meta name="description" content="Impulsa tu carrera y tu obra">
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="brand" href="index.html">
+                <img src="assets/img/brand/marca-blanco.png" alt="cromAwards">
+            </a>
+            <nav class="main-nav">
+                <a href="categorias.html">Categorías</a>
+                <a href="jurado.html">El jurado</a>
+                <a href="resultados.html">Resultados</a>
+                <a href="galeria.html">Galería</a>
+                                <a href="contacto.html">Contacto</a>
+                                <a class="btn" href="inscripcion.html">Inscríbete</a>
+                <span class="lang-switch">
+                    <a href="?lang=es" class="is-active">ES</a>
+                    <a href="?lang=en" class="">EN</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+<style>
+  .inscription-form .accept{display:block;text-align:left;margin:1.2rem 0}
+  .inscription-form .accept span{display:inline}
+  .inscription-form .accept input{width:auto;margin:0 0 0 .45rem;vertical-align:middle}
+</style>
+<section class="page page--narrow inscription">
+    <h1>Inscríbete</h1>
+            <p class="muted">Edición 2026 · Otoño</p>
+    
+    <p class="lead">No necesitas crearte una cuenta. Rellena tus datos, elige cuántas obras vas a presentar y, una vez confirmado el pago, podrás subir tus obras y elegir la categoría de cada una.</p>
+
+    <form action="inscripcion.html" method="post" class="form inscription-form">
+        <input type="hidden" name="_token" value="db42247c99032efc0cec0e8997d44b51013ba7a4fde07ef9a0d7e99477dc48d4">
+        <h2>Tus datos</h2>
+        <p class="muted small">La dirección postal es necesaria para el envío de los premios.</p>
+        <div class="grid grid--2">
+            <label>Nombre y apellidos * <input type="text" name="full_name" value="" required></label>
+            <label>Nombre artístico (opcional) <input type="text" name="artist_name" value=""></label>
+            <label>Correo electrónico * <input type="email" name="email" value="" required></label>
+            <label>Teléfono (opcional) <input type="tel" id="phone" name="phone" value="" autocomplete="tel"></label>
+            <label class="span-2">DNI / NIF / Pasaporte (opcional) <input type="text" name="document_id" value=""></label>
+            <label class="span-2">Dirección * <input type="text" name="address" value="" required></label>
+                    <label>País *
+                <select id="geo-country" required><option value="">— Elige país —</option></select>
+            </label>
+            <input type="hidden" name="country" id="f-country" value="">
+            <label>Provincia / Estado                <select id="geo-province"><option value="">—</option></select>
+            </label>
+            <input type="hidden" name="province" id="f-province" value="">
+            <label>Población *
+                <input type="text" name="city" id="f-city" list="geo-cities" value="" autocomplete="off" required>
+                <datalist id="geo-cities"></datalist>
+            </label>
+                    <label>Código postal * <input type="text" name="postal_code" value="" required></label>
+        </div>
+
+        <h2>¿Cuántas obras vas a presentar?</h2>
+        <p class="muted small">Cuota por obra con descuento progresivo. Elegirás la categoría de cada obra al subirlas.</p>
+        <label class="qty">Número de obras            <select name="quantity" id="quantity">
+                                    <option value="1" selected>1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                            </select>
+        </label>
+
+        <table class="table price-breakdown">
+            <thead><tr><th>Obra</th><th class="text-right">Cuota</th></tr></thead>
+            <tbody id="price-lines"></tbody>
+            <tfoot><tr><th>Total</th><th class="text-right" id="price-total">—</th></tr></tfoot>
+        </table>
+
+                    <input type="hidden" name="gateway" value="test">
+        
+        <label class="checkbox accept">
+            <span>He leído y acepto las <a href="bases.html" target="_blank">bases</a> y la <a href="privacidad.html" target="_blank">política de privacidad</a>.</span>
+            <input type="checkbox" name="accept_terms" value="1" required>
+        </label>
+
+                    <button type="submit" class="btn btn--primary btn--lg">Pagar y continuar · <span id="btn-total"></span></button>
+            </form>
+</section>
+
+<script>
+(function () {
+    var PRICES = {"1":{"total":3000,"lines":[{"position":1,"amount":3000}]},"2":{"total":5500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500}]},"3":{"total":7500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000}]},"4":{"total":9500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000},{"position":4,"amount":2000}]},"5":{"total":11500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000},{"position":4,"amount":2000},{"position":5,"amount":2000}]}};
+    var WORK = "Obra";
+    var fmt = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+    var sel = document.getElementById('quantity');
+    var linesEl = document.getElementById('price-lines');
+    var totalEl = document.getElementById('price-total');
+    var btnTotal = document.getElementById('btn-total');
+    function render() {
+        var q = PRICES[sel.value]; if (!q) return;
+        linesEl.innerHTML = q.lines.map(function (l) {
+            return '<tr><td>' + WORK + ' ' + l.position + '</td><td class="text-right">' + fmt.format(l.amount/100) + '</td></tr>';
+        }).join('');
+        totalEl.textContent = fmt.format(q.total/100);
+        if (btnTotal) btnTotal.textContent = fmt.format(q.total/100);
+    }
+    if (sel) { sel.addEventListener('change', render); render(); }
+})();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+<script>
+(function () {
+    var input = document.getElementById('phone');
+    if (!input || !window.intlTelInput) return;
+    var iti = window.intlTelInput(input, {
+        initialCountry: 'es',
+        preferredCountries: ['es'],
+        separateDialCode: true,
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js'
+    });
+    if (input.form) {
+        input.form.addEventListener('submit', function () {
+            if (input.value.trim() !== '') { input.value = iti.getNumber(); }
+        });
+    }
+})();
+</script>
+
+<script>
+(function () {
+    var base = './geo';
+    var L = {
+        country: "\u2014 Elige pa\u00eds \u2014",
+        province: "\u2014 Provincia \/ Estado \u2014"    };
+    var country  = document.getElementById('geo-country');
+    var province = document.getElementById('geo-province');
+    var cities   = document.getElementById('geo-cities');
+    var cityIn   = document.getElementById('f-city');
+    var fCountry = document.getElementById('f-country');
+    var fProv    = document.getElementById('f-province');
+    if (!country) return;
+
+    function esc(s){ return (s || '').replace(/"/g, '&quot;'); }
+    function fill(sel, items, ph){
+        sel.innerHTML = '<option value="">' + ph + '</option>' + items.map(function (i) {
+            return '<option value="' + esc(i.iso2 || i.name) + '" data-name="' + esc(i.name) + '">' + i.name + '</option>';
+        }).join('');
+    }
+    function selectByName(sel, name){
+        if (!name) return false;
+        for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].getAttribute('data-name') === name) { sel.selectedIndex = i; return true; }
+        }
+        return false;
+    }
+    function loadStates(iso, preProv, preCity){
+        province.innerHTML = '<option value="">—</option>';
+        if (!iso) return;
+        fetch(base + '/states?country=' + encodeURIComponent(iso)).then(function (r){ return r.json(); }).then(function (list){
+            fill(province, list, L.province);
+            if (preProv && selectByName(province, preProv)) { loadCities(iso, province.value, preCity); }
+        });
+    }
+    function loadCities(ciso, siso){
+        cities.innerHTML = '';
+        if (!ciso || !siso) return;
+        fetch(base + '/cities?country=' + encodeURIComponent(ciso) + '&state=' + encodeURIComponent(siso)).then(function (r){ return r.json(); }).then(function (list){
+            cities.innerHTML = list.map(function (i){ return '<option value="' + esc(i.name) + '">'; }).join('');
+        });
+    }
+    country.addEventListener('change', function () {
+        var o = country.options[country.selectedIndex];
+        fCountry.value = o ? (o.getAttribute('data-name') || '') : '';
+        loadStates(country.value);
+    });
+    province.addEventListener('change', function () {
+        var o = province.options[province.selectedIndex];
+        fProv.value = o ? (o.getAttribute('data-name') || '') : '';
+        loadCities(country.value, province.value);
+    });
+    fetch(base + '/countries').then(function (r){ return r.json(); }).then(function (list){
+        fill(country, list, L.country);
+        if (fCountry.value && selectByName(country, fCountry.value)) {
+            loadStates(country.value, fProv.value, cityIn.value);
+        }
+    });
+})();
+</script>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 cromAwards. Todos los derechos reservados.</p>
+            <p class="footer-links">
+                <a href="bases.html">Bases</a> ·
+                <a href="privacidad.html">Privacidad</a> ·
+                <a href="terminos.html">Términos</a> ·
+                <a href="cookies.html">Cookies</a>
+            </p>
+        </div>
+    </footer>
+    <script src="assets/js/app.js"></script>
+<div style="position:fixed;left:0;right:0;bottom:0;background:#d8b072;color:#0b0b0c;text-align:center;font:600 .78rem Inter,system-ui,sans-serif;padding:.5rem 1rem;z-index:99">Vista previa estatica de cromAwards · el diseno es real; formularios, pago y desplegables requieren el servidor PHP (no operan aqui)</div></body>
+</html>
