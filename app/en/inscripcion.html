@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscríbete</title>
-    <meta name="description" content="Impulsa tu carrera y tu obra">
-    <link rel="stylesheet" href="assets/css/site.css">
+    <title>Enter now</title>
+    <meta name="description" content="Boost your career and your work">
+    <link rel="stylesheet" href="../assets/css/site.css">
 </head>
 <body>
     <header class="site-header">
         <div class="site-header__inner">
             <a class="brand" href="index.html">
-                <img src="assets/img/brand/marca-blanco.png" alt="cromAwards">
+                <img src="../assets/img/brand/marca-blanco.png" alt="cromAwards">
             </a>
             <nav class="main-nav">
-                <a href="categorias.html">Categorías</a>
-                <a href="jurado.html">El jurado</a>
-                <a href="resultados.html">Resultados</a>
-                <a href="galeria.html">Galería</a>
-                                <a href="contacto.html">Contacto</a>
-                                <a class="btn" href="inscripcion.html">Inscríbete</a>
+                <a href="categorias.html">Categories</a>
+                <a href="jurado.html">The jury</a>
+                <a href="resultados.html">Results</a>
+                <a href="galeria.html">Gallery</a>
+                                <a href="contacto.html">Contact</a>
+                                <a class="btn" href="inscripcion.html">Enter now</a>
                 <span class="lang-switch">
-                    <a href="?lang=es" class="is-active">ES</a>
-                    <a href="en/inscripcion.html" class="">EN</a>
+                    <a href="../inscripcion.html" class="">ES</a>
+                    <a href="?lang=en" class="is-active">EN</a>
                 </span>
             </nav>
         </div>
@@ -37,39 +37,39 @@
   .inscription-form .accept input{width:auto;margin:0 0 0 .45rem;vertical-align:middle}
 </style>
 <section class="page page--narrow inscription">
-    <h1>Inscríbete</h1>
-            <p class="muted">Edición 2026 · Otoño</p>
+    <h1>Enter now</h1>
+            <p class="muted">Edition 2026 · Otoño</p>
     
-    <p class="lead">No necesitas crearte una cuenta. Rellena tus datos, elige cuántas obras vas a presentar y, una vez confirmado el pago, podrás subir tus obras y elegir la categoría de cada una.</p>
+    <p class="lead">You don&#039;t need to create an account. Fill in your details, choose how many works you will submit and, once payment is confirmed, you will be able to upload your works and choose a category for each one.</p>
 
     <form action="inscripcion.html" method="post" class="form inscription-form">
-        <input type="hidden" name="_token" value="1d74f583b46f7cc6f6a1e714475df0d29b2b1b48a051c9536af055425d179e62">
-        <h2>Tus datos</h2>
-        <p class="muted small">La dirección postal es necesaria para el envío de los premios.</p>
+        <input type="hidden" name="_token" value="d664ffffed028416f5ba75f542a5f66a8997c828aec6c75153123a7cf7b1811a">
+        <h2>Your details</h2>
+        <p class="muted small">The postal address is required to ship the prizes.</p>
         <div class="grid grid--2">
-            <label>Nombre y apellidos * <input type="text" name="full_name" value="" required></label>
-            <label>Nombre artístico (opcional) <input type="text" name="artist_name" value=""></label>
-            <label>Correo electrónico * <input type="email" name="email" value="" required></label>
-            <label>Teléfono (opcional) <input type="tel" id="phone" name="phone" value="" autocomplete="tel"></label>
-            <label class="span-2">DNI / NIF / Pasaporte (opcional) <input type="text" name="document_id" value=""></label>
-            <label class="span-2">Dirección * <input type="text" name="address" value="" required></label>
-                    <label>País *
-                <select id="geo-country" required><option value="">— Elige país —</option></select>
+            <label>Full name * <input type="text" name="full_name" value="" required></label>
+            <label>Artist name (optional) <input type="text" name="artist_name" value=""></label>
+            <label>Email * <input type="email" name="email" value="" required></label>
+            <label>Phone (optional) <input type="tel" id="phone" name="phone" value="" autocomplete="tel"></label>
+            <label class="span-2">ID / Passport (optional) <input type="text" name="document_id" value=""></label>
+            <label class="span-2">Address * <input type="text" name="address" value="" required></label>
+                    <label>Country *
+                <select id="geo-country" required><option value="">— Choose country —</option></select>
             </label>
             <input type="hidden" name="country" id="f-country" value="">
-            <label>Provincia / Estado                <select id="geo-province"><option value="">—</option></select>
+            <label>Province / State                <select id="geo-province"><option value="">—</option></select>
             </label>
             <input type="hidden" name="province" id="f-province" value="">
-            <label>Población *
+            <label>City / Town *
                 <input type="text" name="city" id="f-city" list="geo-cities" value="" autocomplete="off" required>
                 <datalist id="geo-cities"></datalist>
             </label>
-                    <label>Código postal * <input type="text" name="postal_code" value="" required></label>
+                    <label>Postal code * <input type="text" name="postal_code" value="" required></label>
         </div>
 
-        <h2>¿Cuántas obras vas a presentar?</h2>
-        <p class="muted small">Cuota por obra con descuento progresivo. Elegirás la categoría de cada obra al subirlas.</p>
-        <label class="qty">Número de obras            <select name="quantity" id="quantity">
+        <h2>How many works will you submit?</h2>
+        <p class="muted small">Fee per work with a progressive discount. You will choose each work&#039;s category when uploading.</p>
+        <label class="qty">Number of works            <select name="quantity" id="quantity">
                                     <option value="1" selected>1</option>
                                     <option value="2" >2</option>
                                     <option value="3" >3</option>
@@ -79,7 +79,7 @@
         </label>
 
         <table class="table price-breakdown">
-            <thead><tr><th>Obra</th><th class="text-right">Cuota</th></tr></thead>
+            <thead><tr><th>Work</th><th class="text-right">Fee</th></tr></thead>
             <tbody id="price-lines"></tbody>
             <tfoot><tr><th>Total</th><th class="text-right" id="price-total">—</th></tr></tfoot>
         </table>
@@ -87,19 +87,19 @@
                     <input type="hidden" name="gateway" value="test">
         
         <label class="checkbox accept">
-            <span>He leído y acepto las <a href="bases.html" target="_blank">bases</a> y la <a href="privacidad.html" target="_blank">política de privacidad</a>.</span>
+            <span>I have read and accept the <a href="bases.html" target="_blank">contest rules</a> and the <a href="privacidad.html" target="_blank">privacy policy</a>.</span>
             <input type="checkbox" name="accept_terms" value="1" required>
         </label>
 
-                    <button type="submit" class="btn btn--primary btn--lg">Pagar y continuar · <span id="btn-total"></span></button>
+                    <button type="submit" class="btn btn--primary btn--lg">Pay and continue · <span id="btn-total"></span></button>
             </form>
 </section>
 
 <script>
 (function () {
     var PRICES = {"1":{"total":3000,"lines":[{"position":1,"amount":3000}]},"2":{"total":5500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500}]},"3":{"total":7500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000}]},"4":{"total":9500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000},{"position":4,"amount":2000}]},"5":{"total":11500,"lines":[{"position":1,"amount":3000},{"position":2,"amount":2500},{"position":3,"amount":2000},{"position":4,"amount":2000},{"position":5,"amount":2000}]}};
-    var WORK = "Obra";
-    var fmt = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR' });
+    var WORK = "Work";
+    var fmt = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR' });
     var sel = document.getElementById('quantity');
     var linesEl = document.getElementById('price-lines');
     var totalEl = document.getElementById('price-total');
@@ -139,8 +139,8 @@
 (function () {
     var base = './geo';
     var L = {
-        country: "\u2014 Elige pa\u00eds \u2014",
-        province: "\u2014 Provincia \/ Estado \u2014"    };
+        country: "\u2014 Choose country \u2014",
+        province: "\u2014 Province \/ State \u2014"    };
     var country  = document.getElementById('geo-country');
     var province = document.getElementById('geo-province');
     var cities   = document.getElementById('geo-cities');
@@ -199,15 +199,15 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 cromAwards. Todos los derechos reservados.</p>
+            <p>&copy; 2026 cromAwards. All rights reserved.</p>
             <p class="footer-links">
-                <a href="bases.html">Bases</a> ·
-                <a href="privacidad.html">Privacidad</a> ·
-                <a href="terminos.html">Términos</a> ·
+                <a href="bases.html">Rules</a> ·
+                <a href="privacidad.html">Privacy</a> ·
+                <a href="terminos.html">Terms</a> ·
                 <a href="cookies.html">Cookies</a>
             </p>
         </div>
     </footer>
-    <script src="assets/js/app.js"></script>
+    <script src="../assets/js/app.js"></script>
 <div style="position:fixed;left:0;right:0;bottom:0;background:#d8b072;color:#0b0b0c;text-align:center;font:600 .78rem Inter,system-ui,sans-serif;padding:.5rem 1rem;z-index:99">Vista previa estatica de cromAwards · el diseno es real; formularios, pago y desplegables requieren el servidor PHP (no operan aqui)</div></body>
 </html>
